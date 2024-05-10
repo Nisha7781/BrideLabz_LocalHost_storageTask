@@ -5,12 +5,14 @@ function signup(event) {
     var username = document.getElementById("username").value;
     var pass = document.getElementById("password").value;
     var address = document.getElementById("address").value;
+    var number = document.getElementById("number").value;
 
     var user = {
         email: email,
         username: username,
         password: pass,
-        address: address
+        address: address,
+        number: number
     };
 
     var json = JSON.stringify(user);
@@ -20,7 +22,8 @@ function signup(event) {
     window.location.href = "login.html";
 }
 
-function loginFunc(event) {
+function loginFunc(event) 
+{
     event.preventDefault();
 
     var username = document.getElementById("username").value;
@@ -35,8 +38,9 @@ function loginFunc(event) {
         var data = JSON.parse(user);
         if (username === data.username && pass === data.password) {
             result.innerHTML = "Logged in";
-            
-            // Redirect to dashboard
+
+            localStorage.setItem("loggedInUser", username);
+
             window.location.href = "dashboard.html";
         } else {
             result.innerHTML = "Wrong password";

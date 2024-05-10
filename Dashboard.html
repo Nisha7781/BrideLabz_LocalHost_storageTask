@@ -31,17 +31,27 @@
     </style>
 </head>
 <body>
-     <div id="dashboard">
-       
+    <div id="dashboard">
         <h2>Welcome to Your Dashboard</h2>
-        <p>Name: Nisha Mali</p>
-        <p>Email: nisha@gmail.com</p>
-        <p>Address: 123 Main St, Mumbai</p>
-        <p>Phone Number: 123-456-7890</p>
+        <p><strong>Username:</strong> <span id="username"></span></p>
+        <p><strong>Email:</strong> <span id="email"></span></p>
+        <p><strong>Address:</strong> <span id="address"></span></p>
+        <p><strong>Mobile Number:</strong> <span id="number"></span></p>
+    </div>
 
-    </div> 
+    <script>
+        var username = localStorage.getItem("loggedInUser");
+        console.log(username); 
 
-  
+        var userData = JSON.parse(localStorage.getItem(username));
+        console.log(userData); 
+
+        document.getElementById("username").innerText = userData.username;
+        document.getElementById("email").innerText = userData.email;
+        document.getElementById("address").innerText = userData.address;
+        document.getElementById("number").innerText = userData.number;
+
+    </script>
 
 </body>
 </html>
